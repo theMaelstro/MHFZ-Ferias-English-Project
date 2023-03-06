@@ -30,16 +30,20 @@ var MST_Item = setItem(),	// Get item info from items.js
 	searchMei = /*@if (true) location.search.substring(1) @else@*/ UnescapeSJIS(location.search.substring(1)) /*@end@*/;	//Broken escape script for Japanese?
 setItem = null;
 i_item.focus();
-i_item.value = searchMei.toLowerCase();	// toLowerCase() makes search insensitive to letter casing.
+i_item.value = searchMei;
 
 var n = 0,cnt = 0,page = 1,list = [];
 
 if (searchMei[0] === "#") {
-	console.log("Searching HID");
+	for (var i in MST_Item) {
+		if (MST_Item[i][5].toLowerCase().indexOf((searchMei.substring(3,5) + searchMei.substring(1,3)).toLowerCase()) !== -1 && MST_Item[i][1] !== "-") {	//[0] is the index of item NAME, toLowerCase() makes search insensitive to letter casing.
+			list[n++] = MST_Item[i][5] + i;	// [5] is the index of item HID.
+		}
+	}
 }
 else {
 	for (var i in MST_Item) {
-		if (MST_Item[i][0].toLowerCase().indexOf(searchMei) !== -1 && MST_Item[i][1] !== "-") {	//[0] is the index of item NAME.
+		if (MST_Item[i][0].toLowerCase().indexOf(searchMei.toLowerCase()) !== -1 && MST_Item[i][1] !== "-") {	//[0] is the index of item NAME, toLowerCase() makes search insensitive to letter casing.
 			list[n++] = MST_Item[i][5] + i;	// [5] is the index of item HID.
 		}
 	}
