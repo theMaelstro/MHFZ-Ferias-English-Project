@@ -34,8 +34,8 @@ i_item.value = searchMei.toLowerCase();	// toLowerCase() makes search insensitiv
 
 var n = 0,cnt = 0,page = 1,list = [];
 
-if (searchMei[0] == "#") {
-	window.alert("Searching HID");
+if (searchMei[0] === "#") {
+	console.log("Searching HID");
 }
 else {
 	for (var i in MST_Item) {
