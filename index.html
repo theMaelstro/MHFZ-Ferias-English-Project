@@ -3,25 +3,393 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9">
-<link rel="stylesheet" href="style.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="maelstyle.css" type="text/css">
+<base target="bdy">
 <title>Ferias English</title>
-<style>
-	scrollbar-base-color: red;
-	scrollbar-arrow-color: white;
-</style>
+
+	<script type="text/javascript">
+        <!--
+        var link = function (e) {
+        	var w = document.getElementById("DS");
+        	w.href = "damage/_damageK.htm?"+e;
+        	top.bdy.location.href = "damage/_damageK.htm?"+e;
+        	return false;
+        }
+        var mclick = function (no){
+        var i = document.getElementById("m"+no);
+        var w = document.getElementById("m"+no+"l");
+        	if (w.style.display == "none"){
+        		i.src = "img/close.gif";
+        		w.style.display = "";
+        	} else {
+        		i.src = "img/open.gif";
+        		w.style.display = "none";
+        	}
+        }
+        //-->
+    </script>
+	<script src="/script/toggleMenuButton.js" type="text/javascript"></script>
+    <script src="/script/toggleTopnav.js" type="text/javascript"></script>
+
 </head>
 
-<div>
-<frameset cols="14%,*">
-  <frame src="left.htm" name="left">
-  <frame src="right.htm" name="bdy">
-  <noframes>
-  <body>????y?[?W??t???[???????u???E?U??????????????B
-  
-  
-  </script>
-  </body>
-  </noframes>
+
+<!--
+<frameset rows="90px,*" frameborder="0">
+<!--frameBorder="0" noresize="noresize" scrolling="no" ignore this line
+  <frame style="margin:0;padding:0;position:absolute;top:0;left:0;" src="left.htm" name="left" allowtransparency="true">
+  <frame style="margin:0;padding:0;" src="right.htm" name="bdy">
 </frameset>
-</div>
+-->
+<body>
+	<!-- Flex container to split site into 2 parts by using divs and iframe instead of frameset -->
+	<div class="flex-container">
+		<div id="scrollable">
+		<div class="topnav" id="myTopnav">
+			<a href="right.htm">Top Page</a>
+
+			<div class="dropdown">
+				<button class="dropdown-btn"><p style="font-weight:bold; color: var(--color); font-size:100%;">
+					<image src="img/mhficons/tile024.png" width="20px"> Tools
+						<image src="img/mhficons/tile024.png" width="20px">
+				</p><i class="fa fa-caret-down"></i>
+				</button>
+				<div id="download-container" class="dropdown-container">
+				<ul>
+					<li><a href="skill\skillsimu.htm">Skill Simulator</a></li>
+					<li><a href="koneta\skill.htm">Skill Descriptions</a></li>
+					<li><a href="koneta\skillno.htm">Priority</a></li>
+
+					<li><a href="damage\damageT.htm">Damage Calculator</a><small>(Outdated)</small></li>
+					<li><a href="damage\damageK.htm" id="DS">Damage Comparison※</a><select name="suu" onchange="link(this.value)"><option value="2" selected="">2<option value="3">3<option value="4">4</select></li>
+					<li><a href="damage\bowgun.htm">Bowgun Information</a></li>
+				</ul>
+				</div>
+			</div>
+
+			<div class="dropdown">
+				<button class="dropdown-btn"><p style="font-weight:bold; color: var(--color); font-size:100%;">
+					<image src="img/mhficons/tile024.png" width="20px"> Index
+						<image src="img/mhficons/tile024.png" width="20px">
+				</p><i class="fa fa-caret-down"></i>
+				</button>
+				<div id="index-container" class="dropdown-container">
+				<ul>
+					<li>
+						<a href="sozai\itemlist.htm">Item Index</a>
+					</li>
+					<li>
+						<a href="sozai\equip.htm">Equipment Index</a>
+					</li>
+					<li>
+						<a href="buki\bukiF.htm">
+							<image src="img/mhficons/tile063.png" width="20px">Weapon List</a>
+					</li>
+					<li>
+						<a href="bougu\tree.htm">
+							<image src="img/mhficons/tile077.png" width="20px">Armour List</a>
+					</li>
+					<li>
+						<a href="damage\gakufu.htm">
+							<image src="img/mhficons/tile071.png" width="20px">HH Songs</a>
+					</li>
+					<li>
+						<a href="bougu\bouguF.htm">
+							<image src="img/mhficons/tile044.png" width="20px">Decos and Other</a>
+					</li>
+					<li>
+						<a href="mesi\syokuji.htm">Bentos</a>
+					</li>
+					<li>
+						<a href="mesi\mesion.htm">Recommendations</a>
+					</li>
+				</ul>
+				</div>
+			</div>
+
+			<div class="dropdown">
+				<button class="dropdown-btn"><p style="font-weight:bold; color: var(--color); font-size:100%;">
+					<image src="img/mhficons/tile024.png" width="20px"> Monster Information
+						<image src="img/mhficons/tile024.png" width="20px">
+				</p><i class="fa fa-caret-down"></i>
+				</button>
+				<div id="moninfo-container" class="dropdown-container">
+				<ul>
+					<li>
+						<a href="mons\monsF_h.htm">
+							<image src="img/mhficons/tile107.png" width="20px">Carve Tables</a>
+					</li>
+					<li>
+						<a href="mons\monsF_n.htm">
+							<image src="img/mhficons/tile010.png" width="20px">Hitboxes and Stats</a>
+					</li>
+				</ul>
+				</div>
+			</div>
+
+			<div class="dropdown">
+				<button class="dropdown-btn"><p style="font-weight:bold; font-size:100%;">
+					<image src="img/mhficons/tile038.png" width="20px"> Quest Information
+						<image src="img/mhficons/tile038.png" width="20px">
+				</p><i class="fa fa-caret-down"></i>
+				</button>
+				<div id="qinfo-container" class="dropdown-container">
+				<ul>
+					<li><a href="quest\hrF.htm">Low/High/HR100</a></li>
+					<li><a href="quest\grF.htm">GR</a></li>
+				</ul>
+				</div>
+			</div>
+
+			<div class="dropdown">
+				<button class="dropdown-btn"><p style="font-weight:bold;">
+					<image src="img/mhficons/tile017.png" width="20px">Gathering Information
+						<image src="img/mhficons/tile017.png" width="20px">
+				</p><i class="fa fa-caret-down"></i>
+				</button>
+				<div id="ginfo-container" class="dropdown-container">
+				<ul>
+					<li><a href="saisyu\kaiF.htm">Low</a></li>
+					<li><a href="saisyu\zyouiF.htm">High</a></li>
+					<li><a href="saisyu\sugoF.htm">HR100</a></li>
+					<li><a href="saisyu\gF.htm">GR</a></li>
+					<li><a href="saisyu\enF.htm">Training</a></li>
+				</ul>
+				</div>
+			</div>
+
+			<div class="dropdown">
+				<button class="dropdown-btn"><p style="font-weight:bold;">
+					<image src="img/mhficons/tile017.png" width="20px">Other
+						<image src="img/mhficons/tile017.png" width="20px">
+				</p>
+				<i class="fa fa-caret-down"></i>
+				</button>
+				<div id="other-container" class="dropdown-container">
+				<ul>
+
+					<li><img id="m21" src="img\open.gif" onclick="mclick(21)">
+						<span onclick="mclick(21)" class="c">Gacha/Special Rewards</span>
+						<ul id="m21l" style="display: none;">
+							<li><a href="quest\lot_l.htm">Cat lottery</a></li>
+							<li><a href="koneta\pay_quest.htm">Other</a></li>
+							<li><a href="koneta\pay_special.htm">Special</a></li>
+						</ul>
+					</li>
+
+					<li>
+						<img id="m20" src="img\open.gif" onclick="mclick(20)">
+						<span onclick="mclick(20)" class="c"><image src="img/mhficons/guku.png" width="20px">Gook Farm</span>
+						<ul id="m20l" style="display: none;">
+							<li><a  href="mygarden\mygarden.htm">About</a></li>
+							<li><a  href="mygarden\mizumaki.htm">Plants and Herbs</a></li>
+							<li><a  href="mygarden\souji.htm">Tools and Junk</a></li>
+							<li><a  href="mygarden\nikuyaki.htm">Cooking</a></li>
+							<li><a  href="mygarden\saikutu.htm">Mining</a></li>
+							<li><a  href="mygarden\musi.htm">Bug Catching</a></li>
+							<li><a  href="mygarden\tubo.htm">Mocha Pots</a></li>
+							<li><a  href="mygarden\horidasi.htm">Bargains</a></li>
+							<li><a  href="mygarden\otosimono.htm">Lost Cat</a></li>
+							<li><img id="m23" src="img\open.gif" onclick="mclick(23)">
+								<span onclick="mclick(23)" class="c">Gooks</span>
+								<ul id="m23l" style="display: none;">
+									<li><a  href="mygarden\gook-doc.htm">About</a></li>
+									<li><a  href="mygarden\gook-food.htm">Food</a></li>
+									<li><a  href="mygarden\gook-rusu.htm">Housesitting</a></li>
+									<li><a  href="mygarden\gook-nabe.htm">Cooking</a></li>
+									<li><a  href="mygarden\gook-saisyu.htm">Gathering</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<img id="m15" src="img\open.gif" onclick="mclick(15)">
+						<span onclick="mclick(15)" class="c">My Tore (Pugi Farm)</span>
+						<ul id="m15l" style="display: none;">
+							<li><a  href="mytre\mytre.htm">About</a></li>
+							<li><a  href="mytre\kanri.htm">Manager</a></li>
+							<li><a  href="mytre\mytrebuta.htm">Pugis</a></li>
+							<li><a  href="mytre\mytreneko.htm">Felynes</a></li>
+							<li><a  href="shop\mytre.htm">General Store</a></li>
+							<li><a  href="mytre\cyougou.htm">Combiner</a></li>
+							<li><a  href="mytre\bouken.htm">Adventure House</a></li>
+							<li><a  href="mytre\fuku.htm">Clothing Store</a></li>
+							<li><a  href="mytre\nomi.htm">Bar</a></li>
+						</ul>
+					</li>
+					<li>
+						<img id="m13" src="img\open.gif" onclick="mclick(13)">
+						<span onclick="mclick(13)" class="c">Gallery</span>
+						<ul id="m13l" style="display: none;">
+							<li><a  href="mygallery\galleryS.htm">Gallery Sim</a></li>
+							<li><a  href="mygallery\kihon.htm">Ranking Info</a></li>
+							<li><a  href="mygallery/syouhin.htm">Prizes</a></li>
+							<li><a  href="mygallery\kagu.htm">Furniture</a></li>
+							<li><a  href="mygallery\60000.htm">Combinations</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="koneta\myhouse.htm" style="text-decoration:none;margin-left:0.8em">My House</a>
+					</li>
+					<li>
+						<img id="m22" src="img\open.gif" onclick="mclick(22)">
+						<span onclick="mclick(22)" class="c">My Support</span>
+						<ul id="m22l" style="display: none;">
+							<li>
+								<img id="m221" src="img\open.gif" onclick="mclick(221)">
+								<span onclick="mclick(221)" class="c">My Halk</span>
+								<ul id="m221l" style="display: none;">
+								<li><a  href="npc\myholk_doc.htm">About</a></li>
+								<li><a  href="npc\myholk_book.htm">Halk Skills</a></li>
+								<li><a  href="npc\myholk_food.htm">Food</a></li>
+								</ul>
+							</li>
+							<li>
+								<img id="m222" src="img\open.gif" onclick="mclick(222)">
+								<span onclick="mclick(222)" class="c">Partnyaas</span>
+								<ul id="m222l" style="display: none;">
+									<li><a  href="npc\partnya_doc.htm">About</a></li>
+									<li><a  href="npc\partnya_skill.htm">Skills</a>/<a  href="npc\partnya_skillno.htm">Priority</a></li>
+									<li><a  href="buki\buki_partnyaF.htm">Weapon List</a></li>
+									<li><a  href="bougu\bougu_partnyaF.htm">Armour List</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="koneta\mymission.htm" style="text-decoration:none;margin-left:0.8em">My Mission</a>
+					</li>
+					
+					<li>
+						<img id="m11" src="img\open.gif" onclick="mclick(11)">
+						<span onclick="mclick(11)" class="c">Mocha/Trading/Combos</span>
+						<ul id="m11l" style="display: none;">
+							<li><a  href="koneta\maka.htm">Mocha Pots</a></li>
+							<li><a  href="koneta\koukan.htm">Veggie Elder Trades</a></li>
+							<li><a  href="koneta\mix.htm">Combinations</a></li>
+						</ul>
+					</li>
+					<li>
+						<img id="m12" src="img\open.gif" onclick="mclick(12)">
+						<span onclick="mclick(12)" class="c">Shops</span>
+						<ul id="m12l" style="display: none;">
+							<li><a  href="shop\tougou.htm">General Store</a></li>
+							<li><a  href="shop\syokuzai.htm">Grocery Store</a></li>
+							<li><u>Combiner</u>
+								<ul>
+									<li><a  href="koneta\mix.htm">Bulk Combos</a></li>
+									<li><a  href="shop\mix-gp.htm">GCP Combos</a></li>
+									<li><a  href="shop\mix-cp.htm">CP Combos</a></li>
+									<li><a  href="shop\mix-pr.htm">Special Combos</a></li>
+									<li><a  href="shop\mix-gofu.htm">Talisman Exchange</a></li>
+									<li><a  href="shop\mix-hiden.htm">Hiden Deco Exchange</a></li>
+									<li><a  href="shop\mix-thk.htm">Souls Exchange</a></li>
+									<li><a  href="shop\cyougou.htm">Buyables</a></li>
+								</ul>
+							</li>
+							<li><a  href="shop\harisen.htm">Blacksmith</a></li>
+							<li><a  href="shop\koukan.htm">Trades</a></li>
+							<li><a  href="shop\utahime.htm">Diva Defence Stores</a></li>
+							<li><a  href="shop\ryoudan.htm">Guild</a>(<a  href="shop\ryoudan_geigeki.htm">Diva Defence</a>)</li>
+							<li><a  href="shop\mytre.htm">Pugi</a></li>
+							<li><a  href="shop\caravan.htm">Caravan</a></li>
+							<li><a  href="shop\tenro.htm">Hunter's Road</a>(<a  href="shop\tenromedal.htm">Road Shop</a>)</li>
+							<li><a  href="shop\mezefes.htm">MezFes</a></li>
+						</ul>
+					</li>
+					<li>
+						<img id="m16" src="img\open.gif" onclick="mclick(16)">
+						<span onclick="mclick(16)" class="c">Guild</span>
+						<ul id="m16l" style="display: none;">
+							<li><a  href="ryodan\ryodan.htm">About</a></li>
+							<li><a  href="ryodan\buta.htm">Pugi</a></li>
+							<li><a  href="ryodan\butaesa.htm">Pugi Food</a></li>
+							<li><a  href="shop\ryoudan.htm">General Store</a></li>
+							<li><a  href="ryodan\addquest.htm">Extra Objective</a></li>
+							<li><a  href="ryodan\carnival.htm">Hunter Festival</a></li>
+							<li><a  href="ryodan\cooking.htm">Cuisine</a></li>
+							<li><a  href="ryodan\bouken.htm">Adventure Boat</a></li>
+							<li><a  href="ryodan\treasure.htm">Treasure</a></li>
+						</ul>
+					</li>
+					<li>
+						<img id="m18" src="img\open.gif" onclick="mclick(18)">
+						<span onclick="mclick(18)" class="c">Caravan</span>
+						<ul id="m18l" style="display: none;">
+							<li><a  href="caravan\caravan.htm">About</a></li>
+							<li><a  href="caravan\hunterdec.htm">Hunter Jewel</a></li>
+							<li><a  href="caravan\quest.htm">Quests</a></li>
+							<li><a  href="caravan\questg.htm">G Rank Quests</a></li>
+							<li><a  href="caravan\daikousai.htm">G. Voyage Festi</a>(Removed)</li>
+							<li><a  href="caravan\daitoubatu.htm">Great Slay (Raviente)</a></li>
+							<li><a  href="caravan\kaitaku.htm">Pioneering</a></li>
+							<li><a  href="shop\caravan.htm">Shop</a></li>
+							<li><a  href="caravan\lounge.htm">Lounge</a></li>
+							<li><a  href="shop\mix-cp.htm">CP Combinations</a></li>
+						</ul>
+					</li>
+					<li>
+						<img id="m19" src="img\open.gif" onclick="mclick(19)">
+						<span onclick="mclick(19)" class="c">Rasta / Partner</span>
+						<ul id="m19l" style="display: none;">
+							<li><a  href="npc\partner_doc.htm">Partner Description</a></li>
+							<li><a  href="npc\partner_skill.htm">Partner Skills</a></li>
+							<li><a  href="npc\partner_skill_tree.htm"> Derivation Tree</a></li>
+							<li><a  href="npc\rasta_doc.htm">Rasta Description</a></li>
+							<li><a  href="npc\rasta_lvup.htm">Rasta Enhancement</a></li>
+							<li><a  href="npc\rasta_skill.htm">Rasta Skills</a></li>
+							<li><a  href="npc\rasta_quest.htm">Behavior on Quests</a></li>
+							<li><a  href="npc\rasta_item.htm">Item Lending</a></li>
+							<li><a  href="shop\mix-gp.htm">GCP Combos</a></li>
+						</ul>
+					</li>
+					<li>
+						<img id="m14" src="img\open.gif" onclick="mclick(14)">
+						<span onclick="mclick(14)" class="c">Great Tournament (PvP)</span>
+						<ul id="m14l" style="display: none;">
+							<li><a  href="pet\readme.htm">Great Tournament Info (PvP)</a></li>
+							<li><a  href="pet\lv.htm">Strength</a></li>
+							<li><a  href="pet\yukou.htm">Friendship Lv</a></li>
+							<li><a  href="pet\petesa.htm">Bait/attack methods</a></li>
+						</ul>
+					</li>
+					<li>
+						<img id="m17" src="img\open.gif" onclick="mclick(17)">
+						<span onclick="mclick(17)" class="c">Other Info</span>
+						<ul id="m17l" style="display: none;">
+							<li><a  href="koneta\doc-sword.htm">Weapon Statistics</a></li>
+							<li><a  href="koneta\item_bomb.htm">Item Damage</a></li>
+							<li><a  href="koneta\item_kouka.htm">Item Effects</a></li>
+							<li><a  href="koneta\item_kireaji.htm">Sharpness</a></li>
+							<li>Hunter Points</li>
+							<li><a  href="koneta\rp_h.htm">ＨＲ</a>/<a  href="koneta/rp_s.htm">ＳＲ</a>/<a  href="koneta/rp_g.htm">ＧＲ</a></li>
+							<li><a  href="koneta\tourina.htm">Street Name/Title/Color</a></li>
+							<!--├<a  href="koneta/idou.htm">移動速度の差</a>-->
+							<li><a  href="koneta\fish.htm">Fish</a></li>
+							<li><a  href="koneta\mons-lv.htm">Monster Statistics</a></li>
+							<li><a  href="koneta\mons-size.htm">Monster Size</a></li>
+							<li><a  href="koneta\damage.htm">Damage</a></li>
+							<li><a  href="koneta\houshu.htm">Quest Rewards</a></li>
+							<li><a  href="koneta\dailybonus.htm">Daily Special Offers</a></li>
+						</ul>
+					</li>
+				</ul>
+				</div>
+			</div>
+			<div class="menu-button-container icon" onclick="toggleMenuButton(this),toggleTopnav()">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</div>
+		</div>
+		</div>
+		<div style="flex-grow: 1;background-color:green">
+			<iframe style="display:block;margin:0;padding:0;border:none;" width="100%" height="100%" src="right.htm" name="bdy" title="Iframe Example"></iframe>
+		</div>
+	</div>
+	<script src="/script/dropdown.js" type="text/javascript"></script>
+</body>
+
+
 </html>
