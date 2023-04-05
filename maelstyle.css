@@ -7,7 +7,6 @@ html, body {
 .flex-container {
   display: flex;
   flex-direction: column;
-  background-color: DodgerBlue;
   height:100%;
 }
 
