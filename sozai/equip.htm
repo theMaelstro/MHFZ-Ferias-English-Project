@@ -34,9 +34,55 @@ flex-grow: 1;
 
 
 @media screen and (max-width: 400px) {
-.myList {
-display: none;
+	.myList {
+		display: none;
+	}
+	.input-container {
+		width: 100%;
+		position: fixed;
+		top: 0;
+	}
+	.listContainer {
+		margin-top:40px;
+	}
 }
+
+.input-field {
+	padding: 10px;
+	outline: none;
+	flex-grow: 1;
+}
+
+.input-field:focus {
+	border: 2px solid #04AA6D;
+}
+
+.input-button {
+	padding: 10px;
+	background: #04AA6D;
+	border: none;
+	color: white;
+	min-width: 50px;
+	text-align: center;
+}
+
+.input-button:hover {
+	cursor: pointer;
+}
+
+.input-button:active {
+	border: 2px solid #04AA6D;
+	background-color: white;
+	color: #04AA6D;
+}
+
+.input-container {
+	display: -ms-flexbox;
+ /* IE10 */
+	display: flex;
+	width: 100%;
+}
+
 <!--
 table {border-collapse:collapse;}
 th {text-align:center;font-weight:normal;background-color:#708090;}
@@ -56,10 +102,12 @@ a:visited { color: #33B2FF; text-decoration:none}
 <title>Equipment Search</title>
 </head>
 <body>
-<form name="ls" action="" onsubmit="document.getElementById('b_search').click();return false;" style="margin-bottom:1em;">
-Search：<input type="text" value="" name="equip" id="equip" autocomplete=off style="ime-mode: active;">
-<input type="submit" name="b_search" id="b_search" value="Search">
-</form>
+	<form name="ls" action="" onsubmit="document.getElementById('b_search').click();return false;" style="margin-bottom:1em;">
+		<div class="input-container">
+			<input type="text" value="" name="equip" id="equip" autocomplete=off class="input-field">
+			<input type="submit" name="b_search" id="b_search" value="Search" class="input-button">
+		</div>
+	</form>
 <!--
 <table>
  <tr><td style="padding:0px; vertical-align:top;" id="tblBuki">
@@ -88,12 +136,14 @@ function toggleList(list) {
     }
 }
 </script>
+<div class="listContainer">
 <h1 onclick="toggleList('myWeapon')">Weapons</h1>
 <div id='myWeapon' class="myList"></div>
 <h1 onclick="toggleList('myArmor')">Armors</h1>
 <div id='myArmor' class="myList"></div>
 <h1 onclick="toggleList('myDeco')">Decos</h1>
 <div id='myDeco' class="myList"></div>
+</div>
 <script type="text/javascript" src="bougu_sozai.js"></script>
 <script type="text/javascript" src="buki_sozai.js"></script>
 <script type="text/javascript" src="equipForm.js"></script>

@@ -1,5 +1,5 @@
 var dropdown = document.getElementsByClassName("dropdown-btn");
-var links = document.getElementsByTagName("a")
+var links = document.getElementsByTagName("a");
 var containers = document.getElementsByClassName("dropdown-container");
 var scrollable = document.getElementById("scrollable");
 var nav = document.getElementById("myTopnav");

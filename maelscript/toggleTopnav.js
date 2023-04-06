@@ -7,6 +7,7 @@ function toggleTopnav() {
   } else {
     x.className = "topnav";
 	scrollable.className = "";
+	hideall();
   }
   
   var dropdown = document.getElementById("download-container");
