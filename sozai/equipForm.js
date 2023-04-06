@@ -13,6 +13,9 @@ var addEvent = function (elm, type, func) {
 };
 //武器防具
 addEvent(document.getElementById("b_search"),"click",function () {
+document.getElementById("myWeapon").innerHTML = '';
+document.getElementById("myArmor").innerHTML = '';
+document.getElementById("myDeco").innerHTML = '';
 var searchMei = document.getElementById("equip").value;
 if (!searchMei) return;
 
@@ -22,7 +25,6 @@ var BouguName = {"h":"Head","b":"Chest","a":"Arm","w":"Waist","l":"Leg","d":"Dec
 	BukiId = {0:"taiken",1:"heavy",2:"hammer",3:"lance",4:"katate",5:"right",6:"souken",7:"tachi",8:"horn",9:"gunlance","A":"yumi","B":"tonfa","C":"slaxe","D":"magspike","a":"taiken_partnya","c":"hammer_partnya"},
 	MST_Equip = setBuki();
 
-var txt = "<table><tr><th style=\"width:7em;\">Weapon Type</th><th style=\"width:10em;\">Weapon Name</th></tr>";
 for (var i in MST_Equip.Name) {
 	if (MST_Equip.Name[i].toLowerCase().indexOf(searchMei.toLowerCase()) !== -1) {
 		var eq_rui = i.charAt(0),
@@ -38,14 +40,30 @@ for (var i in MST_Equip.Name) {
 		} else if (MST_Equip.Sinka.indexOf(eq_rui+eq_id) !== -1) { //進化武器
 			sp = "_s";
 		}
-		txt += "<tr><td>" + BukiName[eq_rui] + "</td><td><a href='../buki/" + BukiId[eq_rui] + sp + ".htm#l" + eq_id + "'>" + eq_name + "</a></tr>";
+
+		// Create basic elements
+		const elementDiv = document.createElement("div");
+		const elementP = document.createElement("p");
+		const elementA = document.createElement("a");
+
+		// Create a text nodes:
+		const textA = document.createTextNode(eq_name);
+		const textP = document.createTextNode(BukiName[eq_rui]);
+		
+		// Append the text node to the element nodes:
+		elementA.appendChild(textA);
+		elementP.appendChild(textP);
+		
+		// Assemble div container
+		elementDiv.appendChild(elementP)
+		elementDiv.appendChild(elementA).setAttribute("href", "../buki/" + BukiId[eq_rui] + sp + ".htm#l" + eq_id)
+		
+		// Append div to list container
+		document.getElementById("myWeapon").appendChild(elementDiv);
 	}
 }
-document.getElementById("tblBuki").innerHTML = txt + "<table>";
 
 MST_Equip = setBougu();
-var txt = "<table><tr><th style=\"width:4em;\">Part</th><th style=\"width:10em;\">Armor Name</th></tr>";
-var txts = "<table><tr><th style=\"width:4em;\">Deco type</th><th style=\"width:10em;\">Deco Name</th></tr>";
 for (var i in MST_Equip.Name) {
 	if (MST_Equip.Name[i].toLowerCase().indexOf(searchMei.toLowerCase()) !== -1) {
 		var eq_rui = i.charAt(0),
@@ -53,19 +71,73 @@ for (var i in MST_Equip.Name) {
 			eq_name = MST_Equip.Name[i],
 			sp = "";
 		if (eq_rui === "d" || eq_rui === "n" || eq_rui === "c" || eq_rui === "p" || eq_rui === "s" || eq_rui === "t" || eq_rui === "f") {
-			txts += "<tr><td>" + BouguName[eq_rui] + "</td><td><a href='../bougu/" + BouguId[eq_rui] + ".htm#l" + eq_id + "'>" + eq_name + "</a></td></tr>";
+			// Create basic elements
+			const elementDiv = document.createElement("div");
+			const elementP = document.createElement("p");
+			const elementA = document.createElement("a");
+			
+			// Create a text nodes:
+			const textA = document.createTextNode(eq_name);
+			const textP = document.createTextNode(BouguName[eq_rui]);
+			
+			// Append the text node to the element nodes:
+			elementA.appendChild(textA);
+			elementP.appendChild(textP);
+			
+			// Assemble div container
+			elementDiv.appendChild(elementP)
+			elementDiv.appendChild(elementA).setAttribute("href", "../bougu/" + BouguId[eq_rui] + ".htm#l" + eq_id)
+			// Append div to list container
+			document.getElementById("myDeco").appendChild(elementDiv);
 		} else {
 			//防具
 			if (eq_name.lastIndexOf("SP") !== -1) {
-				txt += "<tr><td>" + BouguName[eq_rui] + "</td><td><a href='../bougu/" + BouguId[eq_rui] + "sp.htm#l" + eq_id + "'>" + eq_name + "</a></td></tr>";
+				// Create basic elements
+				const elementDiv = document.createElement("div");
+				const elementP = document.createElement("p");
+				const elementA = document.createElement("a");
+				
+				// Create a text nodes:
+				const textA = document.createTextNode(eq_name);
+				const textP = document.createTextNode(BouguName[eq_rui]);
+				
+				// Append the text node to the element nodes:
+				elementA.appendChild(textA);
+				elementP.appendChild(textP);
+				
+				// Assemble div container
+				elementDiv.appendChild(elementP)
+				elementDiv.appendChild(elementA).setAttribute("href", "../bougu/" + BouguId[eq_rui] + "sp.htm#l" + eq_id)
+				// Append div to list container
+				document.getElementById("myArmor").appendChild(elementDiv);
 			} else {
-				txt += "<tr><td>" + BouguName[eq_rui] + "</td><td><a href='../bougu/tree.htm#" + BouguId[eq_rui].charAt(0) + eq_id + "'>" + eq_name + "</a></td></tr>";
+				// Create basic elements
+				const elementDiv = document.createElement("div");
+				const elementP = document.createElement("p");
+				const elementA = document.createElement("a");
+				
+				// Create a text nodes:
+				const textA = document.createTextNode(eq_name);
+				const textP = document.createTextNode(BouguName[eq_rui]);
+				
+				// Append the text node to the element nodes:
+				elementA.appendChild(textA);
+				elementP.appendChild(textP);
+				
+				// Assemble div container
+				elementDiv.appendChild(elementP)
+				elementDiv.appendChild(elementA).setAttribute("href", "../bougu/tree.htm#" + BouguId[eq_rui].charAt(0) + eq_id)
+				// Append div to list container
+				document.getElementById("myArmor").appendChild(elementDiv);
 			}
 		}
+		
+		
 	}
 }
-document.getElementById("tblBougu").innerHTML = txt + "</table>";
-document.getElementById("tblDec").innerHTML = txts + "</table>";
+
+//document.getElementById("tblBougu").innerHTML = txt + "</table>";
+//document.getElementById("tblDec").innerHTML = txts + "</table>";
 });
 
 document.getElementById("equip").focus();

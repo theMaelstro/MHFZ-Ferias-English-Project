@@ -61,7 +61,7 @@ a:visited { color: #D37AFF;}
 		list.sort();
 
 		for (var i = 0,t = ""; i < n; i++) {
-			// Create an "li" node:
+			// Create an "a" node:
 			const node = document.createElement("a");
 			if (cnt === 150) {
 				++page;
@@ -71,21 +71,12 @@ a:visited { color: #D37AFF;}
 			
 			// Create a text node:
 			const textnode = document.createTextNode(MST_Item[t][0]);
-			// Append the text node to the "li" node:
+			// Append the text node to the "a" node:
 			node.appendChild(textnode);
-			// Append the "li" node to the list:
+			// Append the "a" node to the list:
 			document.getElementById("myList").appendChild(node).setAttribute("href", "sozai.htm?"+t);
 			//document.write("<li><a href=\"sozai.htm?"+t+"\">"+MST_Item[t][0]+"<\/a>");
 			cnt++;
-			
-			
-			
-			
-
-			
-
-			
-
 			
 		}
 
