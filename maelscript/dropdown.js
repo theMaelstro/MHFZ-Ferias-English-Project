@@ -3,6 +3,7 @@ var links = document.getElementsByTagName("a")
 var containers = document.getElementsByClassName("dropdown-container");
 var scrollable = document.getElementById("scrollable");
 var nav = document.getElementById("myTopnav");
+var toggle = document.getElementById("nav-toggle");
 var i;
 
 
@@ -14,6 +15,7 @@ function hideall() {
 		}
 		nav.className = "topnav";
 		scrollable.className = "";
+		toggle.classList.remove("change")
 	}
 function hide(ele) {
 		for (i = 0; i < containers.length; i++) {
