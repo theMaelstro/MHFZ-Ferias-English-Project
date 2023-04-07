@@ -71,10 +71,13 @@ var creSaiLink = function (data,obj,rank,season) {
 								: "<br>");
 	}
 	obj.innerHTML = txt;/*.replace(/s /g," Mining ").replace(/m /g," Insects ").replace(/t /g," Fishing ")*/;
+	/*
 	if (m > 4) {
 		obj.style.height = "5em";
 		obj.style.overflow = "auto";
 	}
+	*/
+	
 }
 //下位
 if (MST_Saisyu.Kai[item_id]) {

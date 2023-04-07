@@ -4,6 +4,38 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9">
 <style type="text/css">
+.container {
+	display:flex;
+	flex-direction:row;
+	padding:10px;
+}
+
+.container > div {
+	display:flex;
+	flex-direction:row;
+	padding: 0 10px 0 10px;
+}
+
+.container > div > div > h3 {
+	text-align:center;
+}
+
+.container > div > div {
+	display:flex;
+	flex-direction:column;
+}
+
+@media screen and (max-width: 400px) {
+	.container {
+		flex-direction: column;
+	}
+
+	.container > div {
+		flex-direction:column;
+	}
+
+}
+
 <!--
 table {border-collapse:collapse;}
 th {text-align:center;font-weight:normal;background-color:#708090;}
@@ -44,52 +76,143 @@ html:not([lang*=""]) th
 <title>?f?????</title>
 </head>
 <body>
+<div id="sai_link" style="display:none; position:fixed; top:0; left:0; height:300px;">
+<!--
+	<p>White = Gathering | Red = Mining</p>
+	<p>Yellow = Insects | Blue = Fishing<p>
+-->
+	<a href="">
+		<img src="..\img\w.jpg" id="sai_map">
+	</a>
+	<script>
+	function hideMap() {
+		document.getElementById('sai_link').style.display = 'none';
+		}
+	</script>
+	<button style="width:50px; height:50px;" onclick="hideMap();">X</button>
+</div>
+
+
+
 <div>
 <span id="d_mei">&nbsp;</span>
 <input type="button" name="b_back" id="b_back" value="Back">
 </div>
-<table><tr>
-<td class="l">Rarity</td><td id="d_rea">&nbsp;</td>
-<td class="l">Price</td><td id="d_buy">&nbsp;</td>
-<td class="l">Stack</td><td id="d_stock">&nbsp;</td>
-<td class="l" id="d_hrmei">HR</td><td id="d_hr">&nbsp;</td>
-<td class="l">Desc</td><td id="d_setu">&nbsp;</td>
-</tr></table>
-<table style="margin-bottom:1em;">
-<tr><td class="l" colspan="4">Obtained</td><td class="l">Click Day or Night to view the map</td></tr>
-<tr><td rowspan="12" class="l" style="width:4em;">Gathering</td>
-	<td class="l" rowspan="3" style="width:2em;">Low Rank</td>
-	<td class="l" style="width:3em;">Warm</td><td><div id="sai_kaion" style="width:23em"><br></div></td>
-	<td rowspan="12" style="width:250px; text-align:center;vertical-align:middle;font-size:80%;">White = Gathering | Red = Mining<br>Yellow = Insects | Blue = Fishing<br><a href="" id="sai_link" style="display:none;"><img src="..\img\w.jpg" id="sai_map"></a></td></tr>
-<tr><td class="l">Cold</td><td><div id="sai_kaikan" style="width:23em"><br></div></td></tr>
-<tr><td class="l">Breeding</td><td><div id="sai_kaihan" style="width:23em"><br></div></td></tr>
-<tr><td class="l" rowspan="3">High Rank</td>
-	<td class="l">Warm</td><td><div id="sai_zyouion" style="width:23em"><br></div></td></tr>
-<tr><td class="l">Cold</td><td><div id="sai_zyouikan" style="width:23em"><br></div></td></tr>
-<tr><td class="l">Breeding</td><td><div id="sai_zyouihan" style="width:23em"><br></div></td></tr>
-<tr><td class="l" rowspan="3">HR5</td>
-	<td class="l">Warm</td><td><div id="sai_sugoon" style="width:23em"><br></div></td></tr>
-<tr><td class="l">Cold</td><td><div id="sai_sugokan" style="width:23em"><br></div></td></tr>
-<tr><td class="l">Breeding</td><td><div id="sai_sugohan" style="width:23em"><br></div></td></tr>
-<tr><td class="l" rowspan="3">GR</td>
-	<td class="l">Warm</td><td><div id="sai_gon" style="width:23em"><br></div></td></tr>
-<tr><td class="l">Cold</td><td><div id="sai_gkan" style="width:23em"><br></div></td></tr>
-<tr><td class="l">Breeding</td><td><div id="sai_ghan" style="width:23em"><br></div></td></tr>
-<tr><td rowspan="4" class="l">Quest<br>Rewards</td>
-	<td class="l">Low Rank</td><td colspan="3" id="que_kai"><br></td></tr>
-<tr><td class="l">High Rank</td><td colspan="3" id="que_zyoui"><br></td></tr>
-<tr><td class="l">HR5</td><td colspan="3" id="que_sugo"><br></td></tr>
-<tr><td class="l">GR</td><td colspan="3" id="que_g"><br></td></tr>
-<tr><td rowspan="4" class="l"><small>Monsters</small><br>Carves<br>Capture</td>
-	<td class="l">Low Rank</td><td colspan="3" id="mos_kai"><br></td></tr>
-<tr><td class="l">High Rank</td><td colspan="3" id="mos_zyoui"><br></td></tr>
-<tr><td class="l">HR5</td><td colspan="3" id="mos_sugo"><br></td></tr>
-<tr><td class="l">GR</td><td colspan="3" id="mos_g"><br></td></tr>
-<tr><td colspan="2" class="l">Shops</td><td colspan="3" id="shop"><br></td></tr>
-<tr><td colspan="2" class="l">Combos</td><td colspan="3" id="cyougou"><br></td></tr>
-</table>
+
+<div>
+<div>Rarity</div><div id="d_rea">&nbsp;</div>
+<div >Price</div><div id="d_buy">&nbsp;</div>
+<div>Stack</div><div id="d_stock">&nbsp;</div>
+<div  id="d_hrmei">HR</div><div id="d_hr">&nbsp;</div>
+<div>Desc</div><div id="d_setu">&nbsp;</div>
+</div>
+
+
+<h1>Gathering</h1>
+<div class="container">
+  <h3>Low Rank</h3>
+  <div>
+    <div>
+      <h3>Warm</h3>
+      <div id="sai_kaion"></div>
+    </div>
+    <div>
+      <h3>Cold</h3>
+      <div id="sai_kaikan"></div>
+    </div>
+    <div>
+      <h3>Breeding</h3>
+      <div id="sai_kaihan"></div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h3>High Rank</h3>
+  <div>
+    <div>
+      <h3>Warm</h3>
+      <div id="sai_zyouion"> </div>
+    </div>
+    <div>
+      <h3>Cold</h3>
+      <div id="sai_zyouikan"> </div>
+    </div>
+    <div>
+      <h3>Breeding</h3>
+      <div id="sai_zyouihan"> </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h3>HR5</h3>
+  <div>
+    <div>
+      <h3>Warm</h3>
+      <div id="sai_sugoon"> </div>
+    </div>
+    <div>
+      <h3>Cold</h3>
+      <div id="sai_sugokan"> </div>
+    </div>
+    <div>
+      <h3>Breeding</h3>
+      <div id="sai_sugohan"> </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h3>GR</h3>
+  <div>
+    <div>
+      <h3>Warm</h3>
+      <div id="sai_gon"> </div>
+    </div>
+    <div>
+      <h3>Cold</h3>
+      <div id="sai_gkan"> </div>
+    </div>
+    <div>
+      <h3>Breeding</h3>
+      <div id="sai_ghan"> </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<h1>Quest Rewards</h1>
+<h3>Low Rank<h3>
+<div id="que_kai"></div>
+<h3>High Rank</h3>
+<div id="que_zyoui"></div>
+<h3>HR5</h3>
+<div id="que_sugo"></div>
+<h3>GR</h3>
+<div id="que_g"></div>
+
+<h1>Monsters: Carves/Capture</h1>
+
+<h3>Low Rank</h3>
+<div id="mos_kai"></div>
+<h3>High Rank</h3>
+<div id="mos_zyoui"></div>
+<h3>HR5</h3>
+<div id="mos_sugo"></div>
+<h3>GR</h3>
+<div id="mos_g"></div>
+
+
+
+<h1>Shops</h1>
+<div colspan="3" id="shop"></div>
+
+<h1>Combos</h1>
+<div colspan="3" id="cyougou"></div>
+
+<h1>Weapon/Armor/Deco</h1>
 <div style="font-size:80%;"><input name="b_yt" id="b_yt" type="button" value="Usage">?? Click to view weapons and armours that use item</div>
-<table>
+<table style="display:none">
  <tr><th colspan="3">Use</th></tr>
  <tr><td style="padding:0; vertical-align:top;" id="tblBuki">
 		<table><tr>
@@ -104,10 +227,13 @@ html:not([lang*=""]) th
 		<th style="width:4em;">Deco Type</th><th style="width:10em;">Deco Name</th><th style="width:2em;">No.</th>
 		</tr></table></td>
  </tr>
- <tr><td colspan="3" class="l">Other Uses</td></tr>
- <tr><td colspan="3" id="riyou"><br></td></tr>
-</table>
+ </table>
+ 
+<h1>Other Uses</h1>
+<div colspan="3" id="riyou"><div>
+
 <div id="loading" style="position:absolute; top:10em; left:20em;width:20em; height:10em; border:solid 2px black; background-color:snow; text-align:center; vertical-align:middle; display:table-cell;">Loading Data...<div>
+
 <script type="text/javascript" src="item.js"></script>
 <script type="text/javascript" src="bougu_sozai.js"></script>
 <script type="text/javascript" src="buki_sozai.js"></script>
