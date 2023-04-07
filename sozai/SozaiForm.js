@@ -37,6 +37,7 @@ if (typeof item === 'undefined') {
 	return;
 }
 document.getElementById("d_mei").firstChild.nodeValue = item[0];
+document.title = item[0];
 document.getElementById("d_rea").firstChild.nodeValue = isNaN(item[1]) ? item[1].replace("X","[宅配X]") : item[1];
 document.getElementById("d_buy").firstChild.nodeValue = item[2] + "z";
 document.getElementById("d_stock").firstChild.nodeValue = item[3];
